@@ -1,0 +1,91 @@
+.title-page{
+    background: rgb(248 248 248);
+    padding: 100px 0px 50px 0;
+    border-bottom: 2px solid #e9e9e9;
+}
+
+.sub-titulo{
+    color:rgb(131, 131, 131)
+}
+
+.btn-setor{
+    background: #FF3C00;
+    border: #FF3C00;
+}
+
+.btn-setor:hover, .btn-setor:focus, .btn-setor:active{
+    background: #dd3400;
+    border: #dd3400;
+}
+
+.show>.btn-setor.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+.show>.btn-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: #dd3400;
+    border-color: #dd3400;
+}
+
+
+.dropdown-design:hover{
+    background: var(--design);
+    color: #fff;
+}
+
+.dropdown-trafego:hover{
+    background: var(--trafego);
+    color: #fff;
+}
+
+.dropdown-conteudo:hover{
+    background: var(--conteudo);
+    color: #fff;
+}
+
+.dropdown-cs:hover{
+    background: var(--cs);
+    color: #fff;
+}
+
+.dropdown-web:hover{
+    background: var(--web);
+    color: #fff;
+}
+
+
+.dropdown-design::before{
+    content: "•";
+    color: var(--design);
+    margin-right: 5px;
+}
+
+.dropdown-trafego::before{
+    content: "•";
+    color: var(--trafego);
+    margin-right: 5px;
+}
+
+.dropdown-conteudo::before{
+    content: "•";
+    color: var(--conteudo);
+    margin-right: 5px;
+}
+
+.dropdown-cs::before{
+    content: "•";
+    color: var(--cs);
+    margin-right: 5px;
+}
+
+.dropdown-web::before{
+    content: "•";
+    color: var(--web);
+    margin-right: 5px;
+}
+
+
+
+
+
