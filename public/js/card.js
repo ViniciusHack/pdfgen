@@ -2,9 +2,9 @@ template = `
 <div class="card comp-card" data-componente="">
 <div class="card-body">
 <fieldset >
-    <input class="form-control" type="text" placeholder="Default input" name="title" data-comp-titulo>
+    <input class="form-control" type="text" placeholder="Default input" name="titles" data-comp-titulo>
     <br>
-    <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3" data-comp-descricao></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="descriptions" rows="3" data-comp-descricao></textarea>
     <br>
     </fieldset>
     <button type="button" class="btn btn-outline-success" onclick="salvaCard(this)">Salvar</button>
