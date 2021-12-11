@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/title-page.css">
     <link rel="stylesheet" href="/css/card.css">
+    <link rel="stylesheet" href="/css/form.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -38,7 +39,30 @@
     </div>
 
     <div class="container">
-        <form action="/gen" method="post">
+        <form action="/gen" method="post" class="form">
+            <input type="text" name="proposal" class="form-control" placeholder="Número da proposta">
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="company" class="form-control" placeholder="Empresa">
+                </div>
+                <div class="col">
+                    <input type="text" name="cnpj" class="form-control" placeholder="CNPJ">
+                </div>
+            </div>
+            <input type="text" class="form-control" name="adress" placeholder="Endereço">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="responsible" placeholder="Responsável">
+                </div>
+                <div class="col">
+                    <input type="tel" class="form-control" name="phone" placeholder="Telefone">
+                </div>
+                <div class="col">
+                    <input type="email" class="form-control" name="email" placeholder="E-mail">
+                </div>
+            </div>
+            <input type="text" name="head" 
+            class="form-control" placeholder="Head de Negócios">
         <div data-cards>
 
         </div>
