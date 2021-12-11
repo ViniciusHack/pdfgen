@@ -5,7 +5,7 @@ interface IRequest {
     proposal: string,
     company: string,
     cnpj: string,
-    adress: string,
+    address: string,
     responsible: string,
     phone: string,
     email: string,
@@ -20,14 +20,14 @@ interface IItems {
 }
 
 class GeneratePDFService {
-        execute({proposal, company, adress, responsible, head, cnpj, phone, email, titles, descriptions}: IRequest) {
+        execute({proposal, company, address, responsible, head, cnpj, phone, email, titles, descriptions}: IRequest) {
 
 
         const infos = {
                 proposal,
                 company,
                 cnpj,
-                adress,
+                address,
                 responsible,
                 phone,
                 email,
@@ -54,87 +54,118 @@ class GeneratePDFService {
 
 
         const doc = new jsPDF();
-        
+
         let X= 10;
         let Y= 10;
 
         doc.setFontSize(12);
         
-        function setBoldAndOrange(bool: boolean) {
-            if(bool) {
-                doc.setFont('helvetica', 'bold')
-                return doc.setTextColor(255, 70, 70)
+        function setBold(set: boolean, orange?: boolean) {
+            if(set) {
+                if(orange) {
+                    doc.setFont('helvetica', 'bold')
+                    return doc.setTextColor(255, 70, 70)
+                }
+                return doc.setFont('helvetica', 'bold')
             }
             doc.setFont('helvetica', 'normal')
             doc.setTextColor(0,0,0)
         }
 
+        const pageHeight = doc.internal.pageSize.height // 297
         // HEADER
 
-        setBoldAndOrange(true)
-        doc.text("PROPOSTA N", X+61, Y)
-        setBoldAndOrange(false)
-        doc.text('°' + infos.proposal, X+89, Y)
+        setBold(true, true)
+        doc.text("PROPOSTA N", X+71, Y)
+        setBold(false)
+        doc.text('°' + infos.proposal, X+99, Y)
         Y+= 15
 
-        setBoldAndOrange(true)
+        setBold(true, true)
         doc.text("Empresa:", X,Y)
-        setBoldAndOrange(false)
+        setBold(false)
         doc.text(infos.company, X+20, Y)
         Y += 7
 
-        setBoldAndOrange(true)
+        setBold(true, true)
         doc.text("CNPJ:", X,Y)
-        setBoldAndOrange(false)
+        setBold(false)
         doc.text(infos.cnpj, X+14, Y)
         Y += 7
 
-        setBoldAndOrange(true)
+        setBold(true, true)
         doc.text("Endereço:", X,Y)
-        setBoldAndOrange(false)
-        doc.text(infos.adress, X+22, Y)
+        setBold(false)
+        doc.text(infos.address, X+22, Y)
         Y += 7
 
-        setBoldAndOrange(true)
+        setBold(true, true)
         doc.text("Resnponsável:", X,Y)
-        setBoldAndOrange(false)
+        setBold(false)
         doc.text(infos.responsible, X+31, Y)
         Y += 7
 
-        setBoldAndOrange(true)
+        setBold(true, true)
         doc.text("Telefone:", X,Y)
-        setBoldAndOrange(false)
+        setBold(false)
         doc.text(infos.phone, X+22, Y)
         Y += 7
         
-        setBoldAndOrange(true)
+        setBold(true, true)
         doc.text("Email:", X,Y)
-        setBoldAndOrange(false)
+        setBold(false)
         doc.text(infos.email, X+14, Y)
         Y+=7
 
-        setBoldAndOrange(true)
+        setBold(true, true)
         doc.text("Head de Negócios:", X,Y)
-        setBoldAndOrange(false)
+        setBold(false)
         doc.text(infos.head, X+39, Y)
         Y+= 15
 
 
         // ITENS
         items.forEach( item => {
-            const splitDesc = doc.splitTextToSize(item.description, 180)
-            const widthArr = item.description.length / 0.55
-            const numberOfLines = Math.ceil( widthArr / 180 )
-            doc.setFont('helvetica', 'bold')
+            const splitDesc: string[] = doc.splitTextToSize(item.description, 180)
+            // const widthArr = item.description.length / 0.55
+            // const numberOfLines = Math.ceil( widthArr / 180 )
+            if(Y + 5 >= pageHeight - 10) {
+                doc.addPage()
+                Y = 10
+            }
+
+            setBold(true)
             doc.text(item.title, X, Y)
-            doc.setFont('helvetica', 'normal')
-            doc.text(splitDesc, X+ 5, (Y + 5))
-            Y = Y + 15 + (5 * numberOfLines)
+            Y+=5
+            splitDesc.forEach( line => {
+                if(Y >= pageHeight - 10) {
+                    doc.addPage()
+                    Y = 10
+                }
+                setBold(false)
+                doc.text(line, X+5, Y)
+                Y+= 5
+            })
+            // if( Y + numberOfLines * 5 >= pageHeight - 10) {
+            //     doc.addPage()
+            //     Y = 10
+            //     doc.setFont('helvetica', 'bold')
+            //     doc.text(item.title, X, Y)
+            //     doc.setFont('helvetica', 'normal')
+            //     doc.text(splitDesc, X+ 5, (Y + 5))
+            //     Y = Y + 15 + (5 * numberOfLines)
+            // }
+            // doc.setFont('helvetica', 'bold')
+            // doc.text(item.title, X, Y)
+            // doc.setFont('helvetica', 'normal')
+            // doc.text(splitDesc, X+ 5, (Y + 5))
+            // Y += 15 + (5 * numberOfLines)
+            Y+= 10
         })
 
         doc.save("a4.pdf");
 
-        return {proposal, company, cnpj, adress, responsible, phone, email, head, titles, descriptions}
+        return {proposal, company, cnpj, address, responsible, phone, email, head, titles, descriptions}
     }
 }
 
