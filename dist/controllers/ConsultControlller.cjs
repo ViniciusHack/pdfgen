@@ -9,15 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CardDetailsController = void 0;
-const CardDetailsService_1 = require("../services/CardDetailsService");
-class CardDetailsController {
+exports.ConsultController = void 0;
+const ConsultService_1 = require("../services/ConsultService.cjs");
+class ConsultController {
     handle(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
-            const service = new CardDetailsService_1.CardDetailsService();
-            const result = yield service.execute(request);
+            const service = new ConsultService_1.ConsultService();
+            const result = yield service.execute();
             return response.json(result);
         });
     }
 }
-exports.CardDetailsController = CardDetailsController;
+exports.ConsultController = ConsultController;

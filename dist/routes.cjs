@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.routes = void 0;
 const express_1 = require("express");
-const GeneratePDFController_1 = require("./controllers/GeneratePDFController");
-const ConsultControlller_1 = require("./controllers/ConsultControlller");
-const CardDetailsController_1 = require("./controllers/CardDetailsController");
+const GeneratePDFController_1 = require("./controllers/GeneratePDFController.cjs");
+const ConsultControlller_1 = require("./controllers/ConsultControlller.cjs");
+const CardDetailsController_1 = require("./controllers/CardDetailsController.cjs");
 const routes = (0, express_1.Router)();
 exports.routes = routes;
 const generatePDFController = new GeneratePDFController_1.GeneratePDFController();
