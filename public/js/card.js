@@ -1,4 +1,9 @@
-template = `
+// @ts-nocheck
+let value = 0
+
+let blocoCards = document.querySelector('[data-cards]')
+ 
+let template = `
 <div class="card comp-card" data-componente="">
 <div class="card-body">
 <fieldset >
@@ -14,14 +19,11 @@ template = `
 
 
 
-blocoCards = document.querySelector('[data-cards]')
-
-
-function criaCard(a) {
-    containerCard = document.createElement("div");
+function criaCard() {
+    let containerCard = document.createElement("div");
     containerCard.innerHTML = template;
 
-    blocoCards.appendChild(containerCard)
+    blocoCards?.appendChild(containerCard)
 }
 
 function editaCard(a) {

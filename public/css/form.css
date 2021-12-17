@@ -1,3 +1,23 @@
 .form input {
     margin: .5rem 0;
 }
+
+.form .investment {
+    margin: 0;
+}
+
+.form .invest-partent {
+    margin: 1rem 0;
+}
+
+.buttons {
+    padding: 1.7rem 0;
+}
+
+hr {
+    border-top: 2px solid rgba(0,0,0,0.2)
+}
+
+.submit {
+    margin: 1.7rem 0;
+}

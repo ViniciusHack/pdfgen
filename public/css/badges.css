@@ -1,0 +1,34 @@
+.icon-refresh {
+    transition: 1s
+}
+
+.icon-refresh:focus {
+    transform: rotateX(360deg);
+}
+
+.container-badges {
+    padding: .6rem 0
+}
+
+.badge-card {
+    margin: 0 .4rem;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.button-carousel {
+    background-color: #c6c6c6;
+    opacity: 1;
+    border-radius: 50%;
+    border: none;
+    width: 35px
+}
+
+.badges-container {
+    display: flex;
+    gap: 3rem
+}
+
+.w-100 {
+    width: 100%
+}
