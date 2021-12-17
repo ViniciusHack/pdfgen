@@ -19,7 +19,7 @@
   },
   "scripts": {
     "dev": "ts-node-dev --transpile-only src/app.ts",
-    "start": "s"
+    "start": "node dist/app.js"
   },
   "author": "",
   "license": "ISC",
